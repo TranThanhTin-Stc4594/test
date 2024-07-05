@@ -10,6 +10,7 @@ function checkPassword() {
     if (password === 'sasi') {
         document.getElementById('login-wrapper').style.display = 'none';
         document.getElementById('wrapper').style.display = 'block';
+        loadStatus();
     } else {
         alert('Incorrect Password');
     }
@@ -37,16 +38,31 @@ function submitStatus() {
     link.click();
     document.body.removeChild(link);
     
+    // Lưu trạng thái vào localStorage
+    localStorage.setItem('machineStatus', status);
+    
     // Cập nhật trạng thái trên HTML
-    var statusElement = document.getElementById('current-status');
-    statusElement.innerText = 'Trạng thái hiện tại: ' + status;
-    statusElement.style.display = 'block';
+    updateStatus(status);
     
     alert('Trạng thái của máy đã được cập nhật thành: ' + status);
 }
 
+function updateStatus(status) {
+    var statusElement = document.getElementById('current-status');
+    statusElement.innerText = 'Trạng thái hiện tại: ' + status;
+    statusElement.style.display = 'block';
+}
+
+function loadStatus() {
+    var savedStatus = localStorage.getItem('machineStatus');
+    if (savedStatus) {
+        document.getElementById('status').value = savedStatus;
+        updateStatus(savedStatus);
+    }
+}
+
 function createAndSendFile() {
-    var status = document.getElementById('status').value || 'Chưa có trạng thái';
+    var status = localStorage.getItem('machineStatus') || 'Chưa có trạng thái';
     var content = 'Trạng thái máy hiện tại: ' + status + '\nThời gian gửi: ' + new Date().toLocaleString();
 
     var blob = new Blob([content], { type: 'text/plain' });
@@ -76,4 +92,5 @@ function setScheduleForFileSend() {
 
 window.onload = function() {
     setScheduleForFileSend();
+    loadStatus();
 };
