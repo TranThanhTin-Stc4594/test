@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAIGON AUTO SUPPORTING INDUSTRY JSC</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <img src="https://sasi.com.vn/wp-content/uploads/2022/04/a1.png" alt="logo" class="logo-image">
+    <div class="department"></div>
+</header>
+
+<div id="login-wrapper">
+    <h1>Secure HTML Viewer</h1>
+    <p><i><strong>Vì thông tin về máy sản xuất là tài liệu của công ty vui lòng không phận sự không truy cập</strong></i></p>
+    <p><i><strong>Xin cảm ơn</strong></i></p>
+    <div id="login">
+        <label for="password">Enter Password:</label>
+        <input type="password" id="password" onkeydown="checkEnter(event)" />
+        <button onclick="checkPassword()">Submit</button>
+    </div>
+</div>
+
+<div id="wrapper" style="display:none;">
+    <div id="infor">
+        <h2>Tên máy: HÀN MIG CO2 NC SUMIT</h2>
+        <ul>
+            <li>Mã tài sản: WRI350-01-120</li>
+            <li>Tính năng: Hàn CO2</li>
+            <li>Nhãn hiệu: Sasi tự chế</li>
+            <li>
+                <input type="button" value="Thông số nhà sản xuất" onclick="hien()" readonly />
+                <div id="hide" class="hidden">
+                    <p>Model: Không tìm thấy</p>
+                    <p>Năm sản xuất: 2020</p>
+                    <p>Nước sản xuất: Việt Nam</p>
+                    <p>Chiều dài: 3800</p>
+                    <p>Chiều rộng: 1600</p>
+                    <p>Chiều cao: 1800</p>
+                    <p>Trọng lượng tĩnh: 0</p>
+                    <p>Lực dập tải động: 0</p>
+                    <p>Công năng sử dụng: 0</p>
+                    <p>Công suất điện: 0</p>
+                    <p>Dòng 3 pha 380: 0</p>
+                    <p>Dòng 3 pha 220V: 1 pha 220</p>
+                </div>
+            </li>
+            <li>
+                <label for="status">Trạng thái của máy:</label>
+                <select id="status">
+                    <option value="ổn định">Ổn định</option>
+                    <option value="cần được bảo trì">Cần được bảo trì</option>
+                    <option value="khẩn cấp">Khẩn cấp</option>
+                </select>
+            </li>
+            <li>
+                <button onclick="submitStatus()">Cập nhật trạng thái</button>
+            </li>
+        </ul>
+        <p id="current-status" style="display:none; margin-top: 10px; font-weight: bold;"></p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <img src="https://sasi.com.vn/wp-content/uploads/2024/04/Nh%C3%A0-x%C6%B0%E1%BB%9Fng-300x139.png" alt="Factory" class="factory-image">
+        <div class="company-info">
+            <h1>SAIGON AUTO SUPPORTING INDUSTRY JSC</h1>
+            <p>Address: Lot D9, D10, Road No.10, Ho Chi Minh City's Automotive Mechanical Industrial Park, Tan Thanh Dong Ward, Cu Chi District, HCMC.</p>
+            <p>Email: info@sasi.vn</p>
+            <p>Hotline: (028) 3719 5271</p>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

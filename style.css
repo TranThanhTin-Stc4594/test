@@ -1,0 +1,279 @@
+/* style.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #9e9696;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #9e9696;
+    width: 100%;
+}
+
+.logo-image {
+    width: 10%;
+    height: auto;
+    transition: width 0.3s;
+}
+
+.department {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    text-align: center;
+}
+
+#wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.header {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.image-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 2px solid #fff;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+.factory-image {
+    width: 30%;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.company-info {
+    flex: 1;
+    margin-left: 20px;
+    text-align: left;
+}
+
+.company-info h1 {
+    font-size: 24px;
+}
+
+.company-info p {
+    margin: 5px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+#hide {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    padding: 10px;
+    width: fit-content;
+    margin: 10px 0;
+}
+
+#hide p {
+    margin: 0;
+}
+
+@media (max-width: 1200px) {
+    .logo-image {
+        width: 15%;
+    }
+
+    .company-info {
+        font-size: 18px;
+    }
+
+    .company-info h1 {
+        font-size: 20px;
+    }
+
+    input[type="text"] {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    #hide p {
+        font-size: 16px;
+    }
+
+    .department {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-image {
+        width: 20%;
+    }
+
+    .factory-image {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .company-info {
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .company-info h1 {
+        font-size: 18px;
+    }
+
+    .company-info p {
+        font-size: 14px;
+    }
+
+    .image-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-image {
+        width: 25%;
+    }
+
+    input[type="button"] {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    body {
+        padding: 10px;
+    }
+
+    #hide p {
+        font-size: 12px;
+    }
+
+    .department {
+        font-size: 12px;
+    }
+
+    .factory-image {
+        display: none;
+    }
+
+    .company-info {
+        display: block;
+        text-align: center;
+    }
+}
+
+@media (max-height: 700px) {
+    .company-info {
+        display: none;
+    }
+}
+
+input[type="button"] {
+    font-size: 16px;
+    border: none;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    text-align: left;
+    padding: 0;
+}
+
+footer {
+    width: 100%;
+    background-color: #9e9696;
+    padding: 10px 0;
+    border-top: 1px solid #fff;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer-content .factory-image {
+    width: 10%;
+    margin-right: 20px;
+}
+
+.footer-content .company-info {
+    flex: 1;
+    text-align: left;
+    font-size: 14px;
+}
+
+.footer-content .company-info h1 {
+    font-size: 18px;
+}
+
+.footer-content .company-info p {
+    margin: 2px 0;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-content .factory-image {
+        width: 50%;
+        margin: 0 auto 10px;
+    }
+
+    .footer-content .company-info {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content .factory-image {
+        width: 80%;
+    }
+
+    .footer-content .company-info h1 {
+        font-size: 16px;
+    }
+
+    .footer-content .company-info p {
+        font-size: 12px;
+    }
+}
