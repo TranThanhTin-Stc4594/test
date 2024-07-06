@@ -29,20 +29,14 @@ function submitStatus() {
     var status = document.getElementById('status').value;
     var content = 'Trạng thái mới của máy: ' + status + '\nThời gian cập nhật: ' + new Date().toLocaleString();
     
-    // Tạo file TXT
-    var blob = new Blob([content], { type: 'text/plain' });
-    var link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = 'machine_status.txt';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
     // Lưu trạng thái vào localStorage
     localStorage.setItem('machineStatus', status);
     
     // Cập nhật trạng thái trên HTML
     updateStatus(status);
+    
+    // Gửi email với nội dung file TXT
+    sendEmail(content);
     
     alert('Trạng thái của máy đã được cập nhật thành: ' + status);
 }
@@ -61,17 +55,29 @@ function loadStatus() {
     }
 }
 
+function sendEmail(content) {
+    fetch('https://your-app-name.vercel.app/api/send-email', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ content: content }),
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
+
 function createAndSendFile() {
     var status = localStorage.getItem('machineStatus') || 'Chưa có trạng thái';
     var content = 'Trạng thái máy hiện tại: ' + status + '\nThời gian gửi: ' + new Date().toLocaleString();
 
-    var blob = new Blob([content], { type: 'text/plain' });
-    var link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = 'scheduled_machine_status.txt';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Gửi email định kỳ với trạng thái hiện tại
+    sendEmail(content);
 }
 
 function setScheduleForFileSend() {
@@ -94,3 +100,14 @@ window.onload = function() {
     setScheduleForFileSend();
     loadStatus();
 };
+
+// Chặn tổ hợp phím Developer Tools
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'F12' || 
+        (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'J' || event.key === 'C'))) {
+        event.preventDefault();
+    }
+});
+
+// Chặn chuột phải
+document.addEventListener('contextmenu', event => event.preventDefault());
